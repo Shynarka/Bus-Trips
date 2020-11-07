@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //class Trip {
@@ -32,8 +33,28 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
   }
+  Text m = Text('Отправление', style: TextStyle(
+      fontWeight: FontWeight.bold,
+      fontSize: 18,
+      color: Color.fromRGBO(0, 0, 0, .7)),);
+
   @override
   Widget build(BuildContext context) {
+    Column tom = Column(children: [
+      busTrip(
+          'assets/images/three.jpg',
+          'YUTONG',
+          'KZ 888',
+          'KN 02',
+          30,
+          'Нур-Султан',
+          'Атырау',
+          '06.02.2020 Thu',
+          '18:39',
+          '07.02.2020 Fri',
+          '06:10'),
+    ],);
+
     return Scaffold(
         backgroundColor: Color.fromRGBO(244, 243, 243, 1),
         appBar: AppBar(
@@ -66,17 +87,37 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold),),
                     SizedBox(height: 10,),
                     Column(children: [
-                      busTrip('assets/images/one.jpg','YUTONG','KZ 888','KN 02',32,'Асыката','Алматы','06.02.2020 Thu','18:39','07.02.2020 Fri','06:10'),
-                      busTrip('assets/images/two.jpg','End2End Test','KZ 888','KN 02',52,'Город Х','Сарыагаш','06.02.2020 Thu','18:39','07.02.2020 Fri','06:10'),
+                      busTrip(
+                          'assets/images/one.jpg',
+                          'YUTONG',
+                          'KZ 888',
+                          'KN 02',
+                          32,
+                          'Асыката',
+                          'Алматы',
+                          '06.02.2020 Thu',
+                          '18:39',
+                          '07.02.2020 Fri',
+                          '06:10'),
+                      busTrip(
+                          'assets/images/two.jpg',
+                          'End2End Test',
+                          'KZ 888',
+                          'KN 02',
+                          52,
+                          'Город Х',
+                          'Сарыагаш',
+                          '06.02.2020 Thu',
+                          '18:39',
+                          '07.02.2020 Fri',
+                          '06:10'),
                     ],),
                     Text(' Завтра', style: TextStyle(
                         color: Color.fromRGBO(61, 118, 66, 1),
                         fontSize: 25,
                         fontWeight: FontWeight.bold),),
                     SizedBox(height: 10,),
-                    Column(children: [
-                      busTrip('assets/images/one.jpg','YUTONG','KZ 888','KN 02',30,'Нур-Султан','Атырау','06.02.2020 Thu','18:39','07.02.2020 Fri','06:10'),
-                    ],),
+                    tom,
                   ],
                 ),
               ),
@@ -101,9 +142,10 @@ class _HomePageState extends State<HomePage> {
         )
     );
   }
-
-  Widget busTrip(img, bus, busCode, busWord, places, from, to, startDate, startTime, destDate, destTime){
-    return Container(
+  
+  Widget busTrip(img, bus, busCode, busWord, places, from, to, startDate,
+      startTime, destDate, destTime) {
+    Container card = Container(
       margin: EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -133,13 +175,16 @@ class _HomePageState extends State<HomePage> {
                         width: 150,
                         height: 180.0,
                         decoration: BoxDecoration(
-                          image: DecorationImage(fit: BoxFit.cover, image: AssetImage(img)),
-                          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                          image: DecorationImage(fit: BoxFit.cover,
+                              image: AssetImage(img)),
+                          borderRadius: BorderRadius.all(Radius.circular(
+                              20.0)),
                           color: Colors.white,
                         ),
                       ),
                       SizedBox(height: 10,),
-                      Text(bus, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+                      Text(bus, style: TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.w500),),
                       SizedBox(height: 5,),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,15 +193,18 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(busCode, style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),),
-                              Text(busWord, style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),),
+                              Text(busCode, style: TextStyle(fontSize: 16,
+                                  color: Color.fromRGBO(0, 0, 0, .7)),),
+                              Text(busWord, style: TextStyle(fontSize: 16,
+                                  color: Color.fromRGBO(0, 0, 0, .7)),),
                             ],
                           ),
                           SizedBox(width: 30,),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text('$places мест', style: TextStyle(fontSize: 16),),
+                              Text('$places мест',
+                                style: TextStyle(fontSize: 16),),
                             ],
                           )
                         ],)
@@ -168,25 +216,41 @@ class _HomePageState extends State<HomePage> {
                     children: <Widget>[
                       Column(
                         children: [
-                          Text ('$from -', style: TextStyle(fontSize: 22,),),
-                          Text (to, style: TextStyle(fontSize: 22,),),
+                          Text('$from -', style: TextStyle(fontSize: 22,),),
+                          Text(to, style: TextStyle(fontSize: 22,),),
                         ],
                       ),
                       SizedBox(width: 4,),
-                      Text ('Отправление', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromRGBO(0, 0, 0, .7)),),
+                      Text('Отправление', style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Color.fromRGBO(0, 0, 0, .7)),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text ('Дата - $startDate', style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),), SizedBox(height: 4,),
-                          Text ('Время - $startTime', style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),),
+                          Text('Дата - $startDate', style: TextStyle(
+                              fontSize: 16,
+                              color: Color.fromRGBO(0, 0, 0, .7)),),
+                          SizedBox(height: 4,),
+                          Text('Время - $startTime', style: TextStyle(
+                              fontSize: 16,
+                              color: Color.fromRGBO(0, 0, 0, .7)),),
                         ],
                       ),
-                      Text ('Прибытие', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Color.fromRGBO(0, 0, 0, .8)),),
+                      Text('Прибытие', style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          color: Color.fromRGBO(0, 0, 0, .8)),),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text ('Дата - $destDate', style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),), SizedBox(height: 4,),
-                          Text ('Время - $destTime', style: TextStyle(fontSize: 16, color: Color.fromRGBO(0, 0, 0, .7)),),
+                          Text('Дата - $destDate', style: TextStyle(
+                              fontSize: 16,
+                              color: Color.fromRGBO(0, 0, 0, .7)),),
+                          SizedBox(height: 4,),
+                          Text('Время - $destTime', style: TextStyle(
+                              fontSize: 16,
+                              color: Color.fromRGBO(0, 0, 0, .7)),),
                         ],
                       ),
                       SizedBox(height: 30,),
@@ -197,7 +261,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 5,),
           RaisedButton(
-            padding: EdgeInsets.symmetric(vertical:5, horizontal: 100),
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 100),
             color: Colors.white,
             splashColor: Colors.green,
             shape: RoundedRectangleBorder(
@@ -205,11 +269,13 @@ class _HomePageState extends State<HomePage> {
               borderRadius: new BorderRadius.circular(5),),
             child: Text('Удалить рейс', style: TextStyle(fontSize: 17),),
             onPressed: () {
+              m = Text('dfk');
               setState(() {});
             },
           ),
         ],
       ),
     );
+    return card;
   }
 }
