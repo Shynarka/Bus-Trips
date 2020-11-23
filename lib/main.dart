@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'SecondPage.dart';
 
 void main() => runApp(
       MaterialApp(
@@ -268,97 +269,4 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class SecondPage extends StatefulWidget {
-  @override
-  _Page2State createState() => _Page2State();
-}
-
-class _Page2State extends State<SecondPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Пассажиры'), backgroundColor: Color.fromRGBO(69, 161, 78, 1),),
-      body: ListView(scrollDirection: Axis.vertical, children: <Widget>[
-        Column(children: [
-          SizedBox(height: 16,),
-          Row(children: [
-            Text('Имя', style: TextStyle(fontSize: 22, color: Color.fromRGBO(0, 0, 0, .75)),),
-            Text('Место', style: TextStyle(fontSize: 22, color: Color.fromRGBO(0, 0, 0, .75)),),
-            Text('Тип', style: TextStyle(fontSize: 22, color: Color.fromRGBO(0, 0, 0, .75)),),
-          ],
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,),
-          SizedBox(height: 10,),
-          Passenger('Aigerim','0 A',true,'OFFLINE'),
-          Passenger('Arlan','0 B',true,'OFFLINE'),
-          Passenger('ASSELYA','1','нижний','ONLINE'),
-          Passenger('Temirlan','1',true,'ONLINE'),
-          Passenger('Temirlan','3',true,'OFFLINE'),
-          Padding(padding: EdgeInsets.only(top: 20), child: Center(child: Text('Cвободные места', style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 0, 0, .75)),))),
-          Passenger('Нет имени','0 A','нижний','ONLINE'),
-          Passenger('Нет имени','0 В','нижний','ONLINE'),
-          Passenger('Нет имени','2','нижний','ONLINE'),
-          Passenger('Нет имени','2',true,'ONLINE'),
-          Passenger('Нет имени','3','нижний','ONLINE'),
-          Passenger('Нет имени','4','нижний','ONLINE'),
-          Passenger('Нет имени','4',true,'ONLINE'),
-          Passenger('Нет имени','5','нижний','ONLINE'),
-          Passenger('Нет имени','5',true,'ONLINE'),
-          Passenger('Нет имени','6','нижний','ONLINE'),
-          Passenger('Нет имени','6',true,'ONLINE'),
-          Passenger('Нет имени','7','нижний','ONLINE'),
-          Passenger('Нет имени','7',true,'ONLINE'),
-          Passenger('Нет имени','8','нижний','ONLINE'),
-          Passenger('Нет имени','8',true,'ONLINE'),
-          Passenger('Нет имени','9','нижний','ONLINE'),
-          Passenger('Нет имени','9',true,'ONLINE'),
-          Passenger('Нет имени','10','нижний','ONLINE'),
-          Passenger('Нет имени','10',true,'ONLINE'),
-          RaisedButton(
-            onPressed: () { Navigator.pop(context); },
-            child: Text('go back to Home Page'),
-          ),
-        ],),
-      ],),
-    );
-  }
-
-  Widget Passenger(name, place, istop, type) {
-    String p="верхний";
-    if (istop == false) {
-      p="нижний";
-    }
-    Color color = Colors.green;
-    if (type == "OFFLINE") {
-      color = Colors.grey;
-    }
-    return
-      Row(children: [
-        SizedBox(height: 60, width: MediaQuery.of(context).size.width * 0.4, child: Center(child: Text(name, style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 0, 0, .75)),),)),
-        SizedBox(height: 46, width: MediaQuery.of(context).size.width * 0.2, child: Column(children: [
-          Text(place, style: TextStyle(fontSize: 20, color: Color.fromRGBO(0, 0, 0, .75)),), Text(p, style: TextStyle(color: Color.fromRGBO(0, 0, 0, .75)),),], mainAxisAlignment: MainAxisAlignment.end, crossAxisAlignment: CrossAxisAlignment.center,),),
-        SizedBox(height: 60, width: MediaQuery.of(context).size.width * 0.4, child: Center(child: Container(
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: BorderRadius.circular(40),
-          ),
-          child: Padding(padding: EdgeInsets.symmetric(vertical: 8, horizontal: 22), child: Text(type, style: TextStyle(fontSize: 20, color: Colors.white),)),)),)
-      ],
-      );
-  }
-}
-
-//class Trip {
-//  String img;
-//  String bus;
-//  String busCode;
-//  String busWord;
-//  int places;
-//  String from;
-//  String to;
-//  String startDate;
-//  String startTime;
-//  String destDate;
-//  String destTime;
-//
-//  Trip(this.img,this.bus,this.busCode,this.busWord,this.places,this.from,this.to,this.startDate,this.startTime,this.destDate,this.destTime);
-//}
+//height: MediaQuery.of(context).size.height * 0.75,
